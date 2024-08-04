@@ -45,13 +45,13 @@ export const Inner = styled.div`
     gap: 1rem;
     height: 13rem;
     img {
-      width: 7rem;
+      width: 6rem;
       height: 100%;
     }
 
     div {
       div {
-        font-size: 6rem;
+        font-size: 4rem;
       }
     }
   }
