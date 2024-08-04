@@ -13,10 +13,10 @@ const Preloader = ({
 }) => {
   const word = ['C', 'A', 'R', 'D', 'x'];
 
-  const spans = useRef<any>([]); // Create a ref to store the span elements
-  const imageRef = useRef(null);
-  const secondOverlayRef = useRef(null);
-  const wrapperRef = useRef(null);
+  const spans = useRef<HTMLDivElement[]>([]); // Define ref type for array of HTMLDivElement
+  const imageRef = useRef<HTMLImageElement>(null);
+  const secondOverlayRef = useRef<HTMLDivElement>(null);
+  const wrapperRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const tl = gsap.timeline();
@@ -67,7 +67,9 @@ const Preloader = ({
             {word.map((t, i) => (
               <div
                 key={i}
-                ref={(element) => (spans.current[i] = element)} // Assign ref to each span
+                ref={(element: HTMLDivElement | null) => {
+                  if (element) spans.current[i] = element; // Update ref array
+                }}
               >
                 {t}
               </div>
